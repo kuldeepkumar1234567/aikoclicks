@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags -->
+    <meta name="google-site-verification" content="8U0ZdlWNUlXkJ0QMiRsaKKhESiyGm4j_rYdAqKMXoHI">
+    <!-- Title -->
+    <title>Aiko</title>
+    <!-- CSS styles -->
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: url('file:///C:/Users/mahendar/Documents/Aiko%20Games/Neeranth%20(Soul%20of%20Water)/Assets/bg%20aiko.png');
+            background-size: cover;
+            background-attachment: fixed;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            cursor: default;
+        }
+        .box {
+            visibility: hidden;
+        }
+        button {
+            height: 45px;
+            width: 60px;
+            font-size: medium;
+        }
+        p[id="text"] {
+            color: #fff;
+        }
+        span {
+            font-size: 30px;
+            text-align: center;
+        }
+        p {
+            font-size: 30px;
+            text-align: center;
+        }
+        p[id="average"] {
+            visibility: hidden;
+        }
+        p[id="feedback"] {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            visibility: hidden;
+        }
+        .timerpos {
+            top: 25%;
+        }
+        .bigbox {
+            background-color: aliceblue;
+            border-radius: 15px;
+            opacity: 85%;
+        }
+        a {
+            font-size: medium;
+            color: #000;
+        }
+        a:hover {
+            color: chartreuse;
+            background-color: #000;
+            border-radius: 4px;
+            padding: 5px;
+            transition: ease-in-out 0.5s;
+        }
+        .form {
+            background-color: aliceblue;
+            border-radius: 15px;
+            opacity: 85%;
+            position: absolute;
+            top: 6%;
+            left: 83%;
+            font-size: medium;
+            width: 235px;
+            height: 230px;
+        }
+        p[id="rank1"], p[id="rank2"], p[id="rank3"] {
+            font-size: large;
+            transition: ease-in 0.3s;
+        }
+        p[id="rank1"]:hover, p[id="rank2"]:hover, p[id="rank3"]:hover {
+            background-color: greenyellow;
+            cursor: pointer;
+        }
+        .timesection {
+            width: 200px;
+            height: 180px;
+            position: absolute;
+            left: 63.75%;
+            top: 40%;
+            cursor: pointer;
+            background-color: aliceblue;
+            opacity: 80%;
+            border-radius: 5px;
+            text-align: center;
+            font-size: large;
+            text-decoration: none;
+        }
+        b {
+            font-size: large;
+        }
+        .note {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-color: aliceblue;
+            visibility: hidden;
+            top: 5%;
+            border-radius: 3%;
+        }
+        p[id="note"] {
+            font-size: large;
+            position: absolute;
+            top: 8%;
+            left: 33%;
+            background-color: black;
+            border-radius: 10%;
+            color: #fff;
+        }
+        b[id="note1"] {
+            position: absolute;
+            top: 3%;
+            left: 1.5%;
+            background-color: aliceblue;
+            opacity: 90%;
+            width: 50px;
+            height: 25px;
+            border-radius: 10%;
+            border-color: #000;
+        }
+        img[id="badge1"] {
+            position: absolute;
+            top: 13%;
+            left: 81.7%;
+        }
+        img[id="badge2"] {
+            position: absolute;
+            top: 21.5%;
+            left: 82.25%;
+        }
+        img[id="badge3"] {
+            position: absolute;
+            top: 28.8%;
+            left: 83.4%;
+        }
+    </style>
+    <link rel="icon" type="image/png" href="generate a logo b3923236-1388-4fb8-a74d-69d8debaa5d7.png">
+    
+</head>
+<body>
+    <div class="form">
+        <h2>LeaderBoard</h2>
+        <p id="rank1"><span id="rank">1.</span><span id="name1">Player</span> <span id="score1">0</span></p>
+        <p id="rank2"><span id="rank">2. </span><span id="name2">Player</span> <span id="score2">0</span></p>
+        <p id="rank3"><span id="rank">3. </span><span id="name3">Player</span> <span id="score3">0</span></p>
+    </div>
+    <div class="bigbox">
+        <div class="timerpos">
+            <p>Timer: <span id="timer">10</span></p>
+        </div>
+        <p>Score: <span id="count">0</span></p>
+        <div class="startbox">
+            <div class="box">
+                <button id="click" onclick="incrementCount()">Tap!</button>
+            </div>
+        </div>
+        <p id="feedback">Times Up!</p>
+        <p id="average">Average Click Speed: <span id="averageValue">0</span></p>
+    </div>
+    <div class="timesection" id="timesection">
+        <b>Game Difficulty Selection</b><br>
+        <abbr title="Click Target : 70"><b onclick="startGame(10)">Time: 10 Sec</b><br></abbr>
+        <abbr title="Click Target : 100"><b onclick="startGame(15)">Time: 15 Sec</b><br></abbr>
+        <abbr title="Click Target : 130"><b onclick="startGame(20)">Time: 20 Sec</b><br></abbr>
+        <abbr title="Click Target : 170"><b onclick="startGame(25)">Time: 25 Sec</b><br></abbr>
+        <abbr title="Click Target : 200"><b onclick="startGame(30)">Time: 30 Sec</b><br></abbr>
+        <b onclick="startGame(86400)">Mode: Endless</b>
+    </div>
+    <b id="note1" onmouseenter="shownote()" onmouseleave="nonote()">Note</b>
+    <div class="note">
+        <p id="note">Note: "When selecting a time option, navigate below the score label."</p>
+    </div>
+    <img src="file:///C:/Users/mahendar/Documents/Aiko%20Games/Neeranth%20(Soul%20of%20Water)/Assets/golds-removebg-preview.png" id="badge1" height="75px">
+    <img src="file:///C:/Users/mahendar/Documents/Aiko%20Games/Neeranth%20(Soul%20of%20Water)/Assets/steelf.png" id="badge2" height="43px">
+    <img src="file:///C:/Users/mahendar/Documents/Aiko%20Games/Neeranth%20(Soul%20of%20Water)/Assets/planet-8742339_640-removebg-preview.png" id="badge3" height="39px">
+
+    <img src="https://files.crazygames.com/assets/2022/PNG/Play_CG_Dark.png" id="crazygameslogo" height="200vh" style="position: absolute;">
+    <script>
+        let count = 0, timer = 10, interval;
+
+        const scores = JSON.parse(localStorage.getItem('leaderboard')) || [
+            { name: "Player", score: 0 },
+            { name: "Player", score: 0 },
+            { name: "Player", score: 0 }
+        ];
+
+        function incrementCount() {
+            count++;
+            document.getElementById('count').innerText = count;
+        }
+
+        function decrementTimer() {
+            if (timer > 0) {
+                timer--;
+                document.getElementById('timer').innerText = timer;
+            } else {
+                clearInterval(interval);
+                document.getElementById('click').style.visibility = 'hidden';
+                document.getElementById('feedback').style.visibility = 'visible';
+                document.getElementById('average').style.visibility = 'visible';
+                document.getElementById('averageValue').innerText = (count / 10).toFixed(2);
+                updateLeaderboard(count);
+            }
+        }
+
+        function startGame(duration) {
+            count = 0;
+            timer = duration;
+            document.getElementById('timer').innerText = timer;
+            document.getElementById('count').innerText = count;
+            document.getElementById('click').style.visibility = 'visible';
+            document.getElementById('feedback').style.visibility = 'hidden';
+            document.getElementById('average').style.visibility = 'hidden';
+            clearInterval(interval);
+            interval = setInterval(decrementTimer, 1000);
+        }
+
+        function updateLeaderboard(score) {
+            const name = prompt("Enter your name:", "Player") || "Player";
+            scores.push({ name, score });
+            scores.sort((a, b) => b.score - a.score);
+            scores.length = Math.min(scores.length, 3);
+            localStorage.setItem('leaderboard', JSON.stringify(scores));
+
+            document.getElementById('name1').innerText = scores[0].name;
+            document.getElementById('score1').innerText = scores[0].score;
+            document.getElementById('name2').innerText = scores[1].name;
+            document.getElementById('score2').innerText = scores[1].score;
+            document.getElementById('name3').innerText = scores[2].name;
+            document.getElementById('score3').innerText = scores[2].score;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedScores = JSON.parse(localStorage.getItem('leaderboard')) || scores;
+            if (savedScores.length) {
+                document.getElementById('name1').innerText = savedScores[0].name;
+                document.getElementById('score1').innerText = savedScores[0].score;
+                document.getElementById('name2').innerText = savedScores[1].name;
+                document.getElementById('score2').innerText = savedScores[1].score;
+                document.getElementById('name3').innerText = savedScores[2].name;
+                document.getElementById('score3').innerText = savedScores[2].score;
+            }
+        });
+
+        function shownote() {
+            document.getElementById('note').style.visibility = 'visible';
+        }
+
+        function nonote() {
+            document.getElementById('note').style.visibility = 'hidden';
+        }
+        window.onload = function() {
+    const logo = document.getElementById('crazygameslogo');
+    logo.style.visibility = 'visible';
+    
+    // Set a timeout to hide the logo after 3 seconds
+    setTimeout(function() {
+        logo.style.visibility = 'hidden';
+    }, 3000); // 3000 milliseconds = 3 seconds
+};
+
+    </script>
+</body>
+</html>
