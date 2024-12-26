@@ -9,7 +9,7 @@
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background-image: url('bg aiko.png');
+            background-image: url('file:///C:/Users/mahendar/Documents/Aiko%20Games/Neeranth%20(Soul%20of%20Water)/Assets/bg%20aiko.png');
             background-size: cover;
             background-attachment: fixed;
             text-align: center;
@@ -32,14 +32,6 @@
         p[id="text"] {
             color: #fff;
         }
-        span {
-            font-size: 30px;
-            text-align: center;
-        }
-        p {
-            font-size: 30px;
-            text-align: center;
-        }
         p[id="average"] {
             visibility: hidden;
         }
@@ -55,6 +47,13 @@
             background-color: aliceblue;
             border-radius: 15px;
             opacity: 85%;
+            position: relative;
+            margin: 20px auto;
+            width: 90%;
+            max-width: 400px;
+            height: auto;
+            padding: 20px;
+            text-align: center;
         }
         a {
             font-size: medium;
@@ -71,12 +70,14 @@
             background-color: aliceblue;
             border-radius: 15px;
             opacity: 85%;
-            position: absolute;
-            top: 6%;
-            left: 83%;
+            position: relative;
+            margin: 10px auto;
             font-size: medium;
-            width: 235px;
-            height: 230px;
+            width: 90%;
+            max-width: 300px;
+            height: auto;
+            padding: 15px;
+            text-align: center;
         }
         p[id="rank1"], p[id="rank2"], p[id="rank3"] {
             font-size: large;
@@ -87,11 +88,9 @@
             cursor: pointer;
         }
         .timesection {
-            width: 200px;
-            height: 180px;
-            position: absolute;
-            left: 63.75%;
-            top: 40%;
+            width: 90%;
+            max-width: 300px;
+            margin: 20px auto;
             cursor: pointer;
             background-color: aliceblue;
             opacity: 80%;
@@ -99,6 +98,7 @@
             text-align: center;
             font-size: large;
             text-decoration: none;
+            padding: 15px;
         }
         b {
             font-size: large;
@@ -132,20 +132,26 @@
             border-radius: 10%;
             border-color: #000;
         }
-        img[id="badge1"] {
-            position: absolute;
-            top: 13%;
-            left: 81.7%;
+        span[id='rank'] {
+            font-size: xx-large;
         }
-        img[id="badge2"] {
-            position: absolute;
-            top: 21.5%;
-            left: 82.25%;
+        span[id='name2'] {
+            font-size: xx-large;
         }
-        img[id="badge3"] {
-            position: absolute;
-            top: 28.8%;
-            left: 83.4%;
+        span[id='score2'] {
+            font-size: xx-large;
+        }
+        span[id='name3'] {
+            font-size: xx-large;
+        }
+        span[id='score3'] {
+            font-size: xx-large;
+        }
+        span[id='name1'] {
+            font-size: xx-large;
+        }
+        span[id='score1'] {
+            font-size: xx-large;
         }
     </style>
     <link rel="icon" type="image/png" href="generate a logo b3923236-1388-4fb8-a74d-69d8debaa5d7.png">
@@ -154,15 +160,15 @@
 <body>
     <div class="form">
         <h2>LeaderBoard</h2>
-        <p id="rank1"><span id="rank">1.</span><span id="name1">Player</span> <span id="score1">0</span></p>
-        <p id="rank2"><span id="rank">2. </span><span id="name2">Player</span> <span id="score2">0</span></p>
-        <p id="rank3"><span id="rank">3. </span><span id="name3">Player</span> <span id="score3">0</span></p>
+        <pre id="rank2"><img src="file:///C:/Users/mahendar/Downloads/diamond_10647559.png" id="badge1" height="45px"><span id="rank">1. </span><span id="name1">Player</span> <span id="score1">0</span></pre>
+        <pre id="rank2"><img src="file:///C:/Users/mahendar/Documents/Aiko%20Games/Neeranth%20(Soul%20of%20Water)/Assets/steelf.png" id="badge2" height="31px"><span id="rank">2. </span><span id="name2">Player</span> <span id="score2">0</span></pre>
+        <pre id="rank3"><img src="file:///C:/Users/mahendar/Documents/Aiko%20Games/Neeranth%20(Soul%20of%20Water)/Assets/planet-8742339_640-removebg-preview.png" id="badge3" height="31px"><span id="rank">3. </span><span id="name3">Player</span> <span id="score3">0</span></pre>
     </div>
     <div class="bigbox">
         <div class="timerpos">
-            <p>Timer: <span id="timer">10</span></p>
+            <b><p>Timer: <span id="timer">10</span></p></b>
         </div>
-        <p>Score: <span id="count">0</span></p>
+        <b><p>Score: <span id="count">0</span></p></b>
         <div class="startbox">
             <div class="box">
                 <button id="click" onclick="incrementCount()">Tap!</button>
@@ -180,13 +186,6 @@
         <abbr title="Click Target : 200"><b onclick="startGame(30)">Time: 30 Sec</b><br></abbr>
         <b onclick="startGame(86400)">Mode: Endless</b>
     </div>
-    <b id="note1" onmouseenter="shownote()" onmouseleave="nonote()">Note</b>
-    <div class="note">
-        <p id="note">Note: "When selecting a time option, navigate below the score label."</p>
-    </div>
-    <img src="golds-removebg-preview.png" id="badge1" height="75px">
-    <img src="steelf.png" id="badge2" height="43px">
-    <img src="planet-8742339_640-removebg-preview.png" id="badge3" height="39px">
     <script>
         let count = 0, timer = 10, interval;
 
